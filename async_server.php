@@ -13,6 +13,10 @@ date_default_timezone_set('Asia/Shanghai');
 
 $http_server = new swoole_http_server('0.0.0.0', 9401); // todo 0.0.0.0
 
+// 得到当前Server的活动TCP连接数，启动时间，accpet/close的总次数等信息。
+//$server_info = $http_server->stats();
+//Log::info('server_info = ' . json_encode($server_info));
+
 // redis存储任务处理结果和进度
 $redis = new Redis();
 $redis->connect('127.0.0.1', 6379);
