@@ -28,10 +28,15 @@ class clsTimer {
                 Log::info('clsTimer::timer_after, ' . __LINE__ . ', ' . $timer_name . ' begin! timer_param = '
                     . json_encode($timer_param));
 
-                self::$timer_name($timer_param);
+                $ret = self::$timer_name($timer_param);
 
-                Log::info('clsTimer::timer_after, ' . __LINE__ . ', ' . $timer_name . ' end! timer_param = '
-                    . json_encode($timer_param));
+                if ($ret) {
+                    Log::info('clsTimer::timer_after, ' . __LINE__ . ', ' . $timer_name . ' success! timer_param = '
+                        . json_encode($timer_param));
+                } else {
+                    Log::info('clsTimer::timer_after, ' . __LINE__ . ', ' . $timer_name . ' fail! timer_param = '
+                        . json_encode($timer_param));
+                }
             }
         });
     }
@@ -68,7 +73,7 @@ class clsTimer {
             if (intval($current_state) === $order_status) {
                 Log::warn(__METHOD__ . ', ' . __LINE__ . ', will not update order status,'
                     . ' because current_state === order_status, order_status = ' . $order_status);
-                return false;
+                return true;
             }
 
             $sql = 'update s_orders set current_state = :order_status where id_order = :id_order';
@@ -81,6 +86,8 @@ class clsTimer {
             Log::error(__METHOD__ . ', ' . __LINE__ . ', db exception = ' . $e->getMessage());
             return false;
         }
+
+        return true;
     }
 
     public static function test() {
