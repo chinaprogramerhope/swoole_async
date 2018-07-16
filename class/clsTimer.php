@@ -25,12 +25,12 @@ class clsTimer {
             if ($left_after_time_ms > 0) { // 剩余时间还未耗完
                 self::timer_after($timer_name, $left_after_time_ms, $timer_param);
             } else { // 满足条件, 跳出递归, 执行相关逻辑
-                Log::info(__METHOD__ . ', ' . __LINE__ . ', ' . $timer_name . ' begin! timer_param = '
+                Log::info('clsTimer::timer_after, ' . __LINE__ . ', ' . $timer_name . ' begin! timer_param = '
                     . json_encode($timer_param));
 
                 self::$timer_name($timer_param);
 
-                Log::info(__METHOD__ . ', ' . __LINE__ . ', ' . $timer_name . ' begin! timer_param = '
+                Log::info('clsTimer::timer_after, ' . __LINE__ . ', ' . $timer_name . ' begin! timer_param = '
                     . json_encode($timer_param));
             }
         });
@@ -59,7 +59,7 @@ class clsTimer {
                 return false;
             }
             if ($current_state != 4) {
-                Log::error(__METHOD__ . ', ' . __LINE__ . ', will not update order status to ' . $order_status .
+                Log::warn(__METHOD__ . ', ' . __LINE__ . ', will not update order status to ' . $order_status .
                     ', because current_state != 4, id_order = ' . $id_order . ', current_state = ' . $current_state);
                 return false;
             }
