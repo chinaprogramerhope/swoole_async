@@ -30,7 +30,7 @@ class clsTimer {
 
                 self::$timer_name($timer_param);
 
-                Log::info('clsTimer::timer_after, ' . __LINE__ . ', ' . $timer_name . ' begin! timer_param = '
+                Log::info('clsTimer::timer_after, ' . __LINE__ . ', ' . $timer_name . ' end! timer_param = '
                     . json_encode($timer_param));
             }
         });
@@ -44,7 +44,7 @@ class clsTimer {
      */
     public static function update_order_status($timer_param) {
         $id_order = $timer_param['id_order'];
-        $order_status = $timer_param['order_status'];
+        $order_status = intval($timer_param['order_status']);
 
         $pdo_shop = Db::get_pdo('shop');
         try {
@@ -62,6 +62,12 @@ class clsTimer {
             if ($current_state != 4) {
                 Log::warn(__METHOD__ . ', ' . __LINE__ . ', will not update order status to ' . $order_status .
                     ', because current_state != 4, id_order = ' . $id_order . ', current_state = ' . $current_state);
+                return false;
+            }
+
+            if (intval($current_state) === $order_status) {
+                Log::warn(__METHOD__ . ', ' . __LINE__ . ', will not update order status,'
+                    . ' because current_state === order_status, order_status = ' . $order_status);
                 return false;
             }
 

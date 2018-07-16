@@ -104,7 +104,7 @@ $http_server->on('task', function ($server, $task_id, $from_id, $data) use ($red
     $redis->set($key_prefix . $task_id, $task_status);
 
     // 得到当前Server的活动TCP连接数，启动时间，accpet/close的总次数等信息。
-    //$server_info = $http_server->stats();
+    //$server_info = $server->stats();
     //Log::info('server_info = ' . json_encode($server_info));
 
     return;
