@@ -14,7 +14,7 @@ class svcTimer {
 
     public function timer_after($param) {
         if (!isset($param['timer_name']) || !isset($param['after_time_ms'])) {
-            Log::error(__METHOD__ . __LINE__ . ' invalid param, param = ' . json_encode($param));
+            Log::error(__METHOD__ . ', ' . __LINE__ . ', invalid param, param = ' . json_encode($param));
             return ERROR_INVALID_PARAM;
         }
 
@@ -23,7 +23,7 @@ class svcTimer {
         $timer_param = isset($param['timer_param']) ? $param['timer_param'] : [];
 
         if ($after_time_ms <= 0) {
-            Log::error(__METHOD__ . __LINE__ . ' invalid param, param = ' . json_encode($param));
+            Log::error(__METHOD__ . ', ' . __LINE__ . ', invalid param, param = ' . json_encode($param));
             return ERROR_INVALID_PARAM;
         }
 
