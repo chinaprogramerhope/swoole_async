@@ -22,7 +22,7 @@ $http_server->set([
 
     'task_worker_num' => 4,
 
-    'daemonize' => false, // todo
+    'daemonize' => true, // todo
     'log_file' => '/tmp/swoole_http_server.log',
 ]);
 
