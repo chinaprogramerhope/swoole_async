@@ -42,7 +42,7 @@ class clsTimer {
      * @param $timer_param
      * @return bool
      */
-    public function update_order_status($timer_param) {
+    public static function update_order_status($timer_param) {
         $id_order = $timer_param['id_order'];
         $order_status = $timer_param['order_status'];
 
