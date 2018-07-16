@@ -24,6 +24,31 @@ const SMS_IC_EXPIRED = 3600; // 手段短信验证码过期时间 - 秒
 const DB_DEFAULT_FETCH_MODE = PDO::FETCH_ASSOC;
 const DB_CONFIG = [
     'usercenter' => [
+        'dsn'=>'mysql:host=10.28.150.218;dbname=usercenter_db',
+        'username' => 'kkhfast01',
+        'password' => 'ufxjp3x#z&',
+        'init_attributes' => [],
+        'init_statements' => [
+            'SET CHARACTER SET utf8mb4',
+            'SET NAMES utf8mb4'
+        ],
+//            'default_fetch_mode' => Config::DB_DEFAULT_FETCH_MODE,
+    ],
+
+    'shop' => [
+        'dsn'=>'mysql:host=10.28.150.218;dbname=shop_db_for_test',
+        'username' => 'kkhfast01',
+        'password' => 'ufxjp3x#z&',
+        'init_attributes' => [],
+        'init_statements' => [
+            'SET CHARACTER SET utf8mb4',
+            'SET NAMES utf8mb4'
+        ],
+    ],
+];
+
+const DB_CONFIG_TEST = [
+    'usercenter' => [
         'dsn' => 'mysql:host=127.0.0.1;dbname=usercenter_db',// 'dsn'=>'mysql:host=10.28.150.218;dbname=usercenter_db'
         'username' => 'root', // 'kkhfast01',
         'password' => 'password', // 'ufxjp3x#z&',
@@ -33,6 +58,17 @@ const DB_CONFIG = [
             'SET NAMES utf8mb4'
         ],
 //            'default_fetch_mode' => Config::DB_DEFAULT_FETCH_MODE,
+    ],
+
+    'shop' => [
+        'dsn'=>'mysql:host=127.0.0.1;dbname=shop_db_for_test',//'dsn'=>'mysql:host=10.28.150.218;dbname=shop_db_for_test',
+        'username' => 'root',//'kkhfast01',
+        'password' => 'password',//'ufxjp3x#z&',
+        'init_attributes' => [],
+        'init_statements' => [
+            'SET CHARACTER SET utf8mb4',
+            'SET NAMES utf8mb4'
+        ],
     ],
 ];
 

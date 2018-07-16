@@ -23,16 +23,16 @@ require_once '../spl_autoload_register.php';
 //Http::curl_post($url, $params);
 
 // 发短信
-$url = 'http://127.0.0.1:9401';
-$params = [
-    'class_name' => 'svcMessage',
-    'func_name' => 'send_message',
-    'func_param' => [
-        'u_kkid' => 'xx',
-        'phone_number' => '18301805881'
-    ],
-];
-Http::curl_post($url, $params);
+//$url = 'http://127.0.0.1:9401';
+//$params = [
+//    'class_name' => 'svcMessage',
+//    'func_name' => 'send_message',
+//    'func_param' => [
+//        'u_kkid' => 'xx',
+//        'phone_number' => '18301805881'
+//    ],
+//];
+//Http::curl_post($url, $params);
 
 //// 发小程序推送消息 todo
 //$url = 'http://127.0.0.1:9401';
@@ -98,3 +98,18 @@ Http::curl_post($url, $params);
 //        'picture' => ["https://img10.kkhcdn.com/qpg_commodity_home_pic/add8e896558911e7962300163e0060d2.jpg", "xx", "xx"],
 //    ],
 //];
+
+// 更新订单状态
+$url = 'http://127.0.0.1:9401';
+$params = [
+    'class_name' => 'svcTimer',
+    'func_name' => 'timer_after',
+    'func_param' => [
+        'timer_name' => 'update_order_status',
+        'timer_param' => [
+            'id_order' => 13,
+            'order_status' => 13
+        ]
+    ],
+];
+Http::curl_post($url, $params);
