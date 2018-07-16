@@ -54,7 +54,7 @@ class clsTimer {
             ]);
             $current_state = $stmt->fetchColumn();
             if (empty($current_state)) {
-                Log::error(__METHOD__, __LINE__, ' db select return empty, sql = ' . $sql
+                Log::error(__METHOD__ . ', ' . __LINE__ . ', db select return empty, sql = ' . $sql
                     . ', timer_param = ' . json_encode($timer_param));
                 return false;
             }
@@ -71,7 +71,7 @@ class clsTimer {
                 ':order_status' => $order_status
             ]);
         } catch (Exception $e) {
-            Log::error(__METHOD__ . ' db exception = ' . $e->getMessage());
+            Log::error(__METHOD__ . ', ' . __LINE__ . ', db exception = ' . $e->getMessage());
             return false;
         }
     }

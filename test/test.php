@@ -107,7 +107,7 @@ $params = [
     'func_param' => [
         'timer_name' => 'update_order_status',
         'timer_param' => [
-            'id_order' => 13,
+            'id_order' => 4633,
             'order_status' => 13
         ]
     ],

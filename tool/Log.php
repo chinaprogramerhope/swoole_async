@@ -33,7 +33,8 @@ class Log {
     }
 
     public static function write_file($level, $content) {
-        $log_dir = '/home/hxl/swoole_log/'; // notice: 运行php的用户必须对要写入的目录有写权限
+//        $log_dir = '/home/hxl/swoole_log/'; // notice: 运行php的用户必须对要写入的目录有写权限 todo
+        $log_dir = '/tmp/swoole_log/';
         if (!file_exists($log_dir)) {
             mkdir($log_dir, 0777, true);
         }
