@@ -22,17 +22,17 @@ require_once '../spl_autoload_register.php';
 //];
 //Http::curl_post($url, $params);
 
-//// 发短信
-//$url = 'http://127.0.0.1:9401';
-//$params = [
-//    'class_name' => 'svcMessage',
-//    'func_name' => 'send_message',
-//    'func_param' => [
-//        'u_kkid' => 'xx',
-//        'phone_number' => '18301805881'
-//    ],
-//];
-//Http::curl_post($url, $params);
+// 发短信
+$url = 'http://127.0.0.1:9401';
+$params = [
+    'class_name' => 'svcMessage',
+    'func_name' => 'send_message',
+    'func_param' => [
+        'u_kkid' => 'xx',
+        'phone_number' => '18301805881'
+    ],
+];
+Http::curl_post($url, $params);
 
 //// 发小程序推送消息 todo
 //$url = 'http://127.0.0.1:9401';
@@ -72,29 +72,29 @@ require_once '../spl_autoload_register.php';
 //$ret = Http::curl_post($url, $params);
 //echo 'type = ' . gettype($ret) . ', ret = ' . json_encode($ret) . "\n";
 
-// 测试日志
-$url = 'http://127.0.0.1:9401';
-$params = [
-    'class_name' => 'svcTest',
-    'func_name' => 'log',
-    'func_param' => [
-    ]
-];
-$ret = Http::curl_post($url, $params);
-echo 'type = ' . gettype($ret) . ', ret = ' . json_encode($ret) . "\n";
-
-
-$data = [
-    'os' => 'wechat',
-    'user_token' => 'xx',
-    'kkid' => 'xxx',
-    'comment_list' => [
-        'id_order_detail' => 1,
-        'id_product' => 1,
-        'quality_score' => 1,
-        'service_score' => 1,
-        'logistics_score' => 1,
-        'content' => 'xx',
-        'picture' => ["https://img10.kkhcdn.com/qpg_commodity_home_pic/add8e896558911e7962300163e0060d2.jpg", "xx", "xx"],
-    ],
-];
+//// 测试日志
+//$url = 'http://127.0.0.1:9401';
+//$params = [
+//    'class_name' => 'svcTest',
+//    'func_name' => 'log',
+//    'func_param' => [
+//    ]
+//];
+//$ret = Http::curl_post($url, $params);
+//echo 'type = ' . gettype($ret) . ', ret = ' . json_encode($ret) . "\n";
+//
+//
+//$data = [
+//    'os' => 'wechat',
+//    'user_token' => 'xx',
+//    'kkid' => 'xxx',
+//    'comment_list' => [
+//        'id_order_detail' => 1,
+//        'id_product' => 1,
+//        'quality_score' => 1,
+//        'service_score' => 1,
+//        'logistics_score' => 1,
+//        'content' => 'xx',
+//        'picture' => ["https://img10.kkhcdn.com/qpg_commodity_home_pic/add8e896558911e7962300163e0060d2.jpg", "xx", "xx"],
+//    ],
+//];
