@@ -1,0 +1,40 @@
+地址: http://127.0.0.1:9401
+
+请求方式: post
+
+参数:
+	class_name - string - 接口类名
+	func_name - string - 接口方法名
+	param - [] - 参数
+	
+
+====
+发邮件
+
+地址: http://127.0.0.1:9401
+
+请求方式: post
+
+参数:
+	class_name - svcMail
+	func_name - send_mail
+	param - [
+		'to' => '18301805881@163.com',
+		'subject' => 'test subject',
+		'body' => 'test body'
+	]
+	
+====
+发短信验证码:
+
+地址: http://127.0.0.1:9401
+
+请求方式: post
+
+参数:
+	class_name - svcMessage
+	func_name - send_message
+	param - [
+		'u_kkid' => 'xx',
+		'phone_number' => '11111111111'
+	]
