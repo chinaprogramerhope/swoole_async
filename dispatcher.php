@@ -21,10 +21,8 @@ $key_prefix = 'swoole_';
 $http_server->set([
     'worker_num' => 4,
     'open_tcp_nodelay' => true,
-
     'task_worker_num' => 4,
-
-    'daemonize' => true, // todo
+    'daemonize' => true,
     'log_file' => '/tmp/swoole_http_server.log',
 ]);
 
@@ -50,7 +48,7 @@ $http_server->on('request', function (swoole_http_request $request, swoole_http_
     Log::info('on_request, ' . __LINE__ . ', param_type = ' . gettype($param) . ', param = ' . json_encode($param));
 
     $task_id = isset($param['task_id']) ? $param['task_id'] : '';
-    if ($task_id != '') { // 返回任务状态 todo 重新设计这个功能
+    if ($task_id != '') { // 返回任务状态 todo
         $task_status = $redis->get($key_prefix . $task_id);
         $success_ret['task_status'] = $task_status;
         $response->end(json_encode($success_ret));
@@ -92,7 +90,7 @@ $http_server->on('task', function ($server, $task_id, $from_id, $data) use ($red
 
     $class = new $data['class_name']();
     $func_name = $data['func_name'];
-    $error_code = $class->$func_name($data['func_param']); // 必须有return, 否则不会调用onFinish
+    $error_code = $class->$func_name($data['func_param']);
     if ($error_code !== ERROR_OK) {
         Log::error('on_task, ' . __LINE__ . ' task fail in task, error_code = ' . $error_code
             . ', error_msg = ' . ERROR_MSG[$error_code]);
@@ -107,7 +105,7 @@ $http_server->on('task', function ($server, $task_id, $from_id, $data) use ($red
     //$server_info = $server->stats();
     //Log::info('server_info = ' . json_encode($server_info));
 
-    return;
+    return; // 必须有return, 否则不会调用onFinish
 });
 
 // 任务结束之后处理任务或者回调

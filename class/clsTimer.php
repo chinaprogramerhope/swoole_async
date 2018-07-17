@@ -9,6 +9,13 @@
  */
 
 class clsTimer {
+    /**
+     * 定时器控制方法
+     * @param $timer_name
+     * @param $after_time_ms
+     * @param array $timer_param
+     * @return int
+     */
     public static function timer_after($timer_name, $after_time_ms, $timer_param = []) {
         $max_after_time_ms = 86400000;
         $current_after_time_ms = 0;
@@ -34,7 +41,7 @@ class clsTimer {
                     Log::info('clsTimer::timer_after, ' . __LINE__ . ', ' . $timer_name . ' success! timer_param = '
                         . json_encode($timer_param));
                 } else {
-                    Log::info('clsTimer::timer_after, ' . __LINE__ . ', ' . $timer_name . ' fail! timer_param = '
+                    Log::error('clsTimer::timer_after, ' . __LINE__ . ', ' . $timer_name . ' fail! timer_param = '
                         . json_encode($timer_param));
                 }
             }
@@ -42,7 +49,7 @@ class clsTimer {
     }
 
     /**
-     * 3天后把该订单的订单状态改为已完成(如果到时该订单状态仍为已发货)
+     * 3天后把订单的订单状态改为已完成(如果到时该订单状态仍为已发货)
      * todo 改为已发货, 3天内改为了别的状态最终又改为已发货时, 目前还是第一次已发货之后的3天后更新订单状态为已完成
      * @param $timer_param
      * @return bool
